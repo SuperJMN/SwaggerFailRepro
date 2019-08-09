@@ -38,12 +38,12 @@ namespace WebApplication1
                     {
                         Name = "Dotnet Detail",
                         Email = "dotnetdetail@gmail.com",
-                        Url = new Uri("www.dotnetdetail.net")
+                        Url = new Uri("http://www.dotnetdetail.net", UriKind.Absolute)
                     },
                     License = new OpenApiLicense()
                     {
                         Name = "ABC",
-                        Url = new Uri("www.dotnetdetail.net")
+                        Url = new Uri("http://www.dotnetdetail.net", UriKind.Absolute)
                     },
                 });
 
@@ -69,6 +69,7 @@ namespace WebApplication1
                 endpoints.MapControllers();
             });
 
+            app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Test API V1"));
         }
     }
